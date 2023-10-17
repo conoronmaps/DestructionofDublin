@@ -1,0 +1,1191 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title>Destruction of Dublin - map by Conor O'Neill (@conoron)</title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/Chapter15_1.js"></script>
+        <script src="data/Chapter14_2.js"></script>
+        <script src="data/Chapter13_3.js"></script>
+        <script src="data/Chapter12_4.js"></script>
+        <script src="data/Chapter11_5.js"></script>
+        <script src="data/Chapter10_6.js"></script>
+        <script src="data/Chapter9_7.js"></script>
+        <script src="data/Chapter8_8.js"></script>
+        <script src="data/Chapter7_9.js"></script>
+        <script src="data/Chapter6_10.js"></script>
+        <script src="data/Chapter5_11.js"></script>
+        <script src="data/Chapter4_12.js"></script>
+        <script src="data/Chapter3_13.js"></script>
+        <script src="data/Chapter2_14.js"></script>
+        <script src="data/Chapter1_15.js"></script>
+        <script src="data/Allbuildings_16.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:12
+        }).fitBounds([[53.30807985281617,-6.308043028756324],[53.36965070777728,-6.17648440053356]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        map.createPane('pane_OSMStandard_0');
+        map.getPane('pane_OSMStandard_0').style.zIndex = 400;
+        var layer_OSMStandard_0 = L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            pane: 'pane_OSMStandard_0',
+            opacity: 0.6,
+            attribution: '<a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors, CC-BY-SA</a>',
+            minZoom: 12,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 19
+        });
+        layer_OSMStandard_0;
+        map.addLayer(layer_OSMStandard_0);
+        function pop_Chapter15_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['URL'] !== null ? autolinker.link(feature.properties['URL'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Street View</th>\
+                        <td>' + (feature.properties['street vie'] !== null ? autolinker.link(feature.properties['street vie'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Designed by</th>\
+                        <td>' + (feature.properties['Architect'] !== null ? autolinker.link(feature.properties['Architect'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Year built</th>\
+                        <td>' + (feature.properties['Year built'] !== null ? autolinker.link(feature.properties['Year built'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Notes</th>\
+                        <td>' + (feature.properties['Notes'] !== null ? autolinker.link(feature.properties['Notes'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">More info</th>\
+                        <td>' + (feature.properties['Link'] !== null ? autolinker.link(feature.properties['Link'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Chapter15_1_0() {
+            return {
+                pane: 'pane_Chapter15_1',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(255,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(177,66,197,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Chapter15_1');
+        map.getPane('pane_Chapter15_1').style.zIndex = 401;
+        map.getPane('pane_Chapter15_1').style['mix-blend-mode'] = 'normal';
+        var layer_Chapter15_1 = new L.geoJson(json_Chapter15_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Chapter15_1',
+            layerName: 'layer_Chapter15_1',
+            pane: 'pane_Chapter15_1',
+            onEachFeature: pop_Chapter15_1,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Chapter15_1_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Chapter15_1);
+        function pop_Chapter14_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['URL'] !== null ? autolinker.link(feature.properties['URL'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Street View</th>\
+                        <td>' + (feature.properties['street vie'] !== null ? autolinker.link(feature.properties['street vie'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Designed by</th>\
+                        <td>' + (feature.properties['Architect'] !== null ? autolinker.link(feature.properties['Architect'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Year built</th>\
+                        <td>' + (feature.properties['Year built'] !== null ? autolinker.link(feature.properties['Year built'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Notes</th>\
+                        <td>' + (feature.properties['Notes'] !== null ? autolinker.link(feature.properties['Notes'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">More info</th>\
+                        <td>' + (feature.properties['Link'] !== null ? autolinker.link(feature.properties['Link'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Chapter14_2_0() {
+            return {
+                pane: 'pane_Chapter14_2',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(255,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(184,173,51,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Chapter14_2');
+        map.getPane('pane_Chapter14_2').style.zIndex = 402;
+        map.getPane('pane_Chapter14_2').style['mix-blend-mode'] = 'normal';
+        var layer_Chapter14_2 = new L.geoJson(json_Chapter14_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Chapter14_2',
+            layerName: 'layer_Chapter14_2',
+            pane: 'pane_Chapter14_2',
+            onEachFeature: pop_Chapter14_2,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Chapter14_2_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Chapter14_2);
+        function pop_Chapter13_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['URL'] !== null ? autolinker.link(feature.properties['URL'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Street View</th>\
+                        <td>' + (feature.properties['street vie'] !== null ? autolinker.link(feature.properties['street vie'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Designed by</th>\
+                        <td>' + (feature.properties['Architect'] !== null ? autolinker.link(feature.properties['Architect'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Year built</th>\
+                        <td>' + (feature.properties['Year built'] !== null ? autolinker.link(feature.properties['Year built'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Notes</th>\
+                        <td>' + (feature.properties['Notes'] !== null ? autolinker.link(feature.properties['Notes'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">More info</th>\
+                        <td>' + (feature.properties['Link'] !== null ? autolinker.link(feature.properties['Link'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Chapter13_3_0() {
+            return {
+                pane: 'pane_Chapter13_3',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(255,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(88,189,232,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Chapter13_3');
+        map.getPane('pane_Chapter13_3').style.zIndex = 403;
+        map.getPane('pane_Chapter13_3').style['mix-blend-mode'] = 'normal';
+        var layer_Chapter13_3 = new L.geoJson(json_Chapter13_3, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Chapter13_3',
+            layerName: 'layer_Chapter13_3',
+            pane: 'pane_Chapter13_3',
+            onEachFeature: pop_Chapter13_3,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Chapter13_3_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Chapter13_3);
+        function pop_Chapter12_4(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['URL'] !== null ? autolinker.link(feature.properties['URL'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Street View</th>\
+                        <td>' + (feature.properties['street vie'] !== null ? autolinker.link(feature.properties['street vie'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Designed by</th>\
+                        <td>' + (feature.properties['Architect'] !== null ? autolinker.link(feature.properties['Architect'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Year built</th>\
+                        <td>' + (feature.properties['Year built'] !== null ? autolinker.link(feature.properties['Year built'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Notes</th>\
+                        <td>' + (feature.properties['Notes'] !== null ? autolinker.link(feature.properties['Notes'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">More info</th>\
+                        <td>' + (feature.properties['Link'] !== null ? autolinker.link(feature.properties['Link'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Chapter12_4_0() {
+            return {
+                pane: 'pane_Chapter12_4',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(255,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(37,179,61,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Chapter12_4');
+        map.getPane('pane_Chapter12_4').style.zIndex = 404;
+        map.getPane('pane_Chapter12_4').style['mix-blend-mode'] = 'normal';
+        var layer_Chapter12_4 = new L.geoJson(json_Chapter12_4, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Chapter12_4',
+            layerName: 'layer_Chapter12_4',
+            pane: 'pane_Chapter12_4',
+            onEachFeature: pop_Chapter12_4,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Chapter12_4_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Chapter12_4);
+        function pop_Chapter11_5(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['URL'] !== null ? autolinker.link(feature.properties['URL'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['street vie'] !== null ? autolinker.link(feature.properties['street vie'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Architect'] !== null ? autolinker.link(feature.properties['Architect'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Year built'] !== null ? autolinker.link(feature.properties['Year built'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Notes'] !== null ? autolinker.link(feature.properties['Notes'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Link'] !== null ? autolinker.link(feature.properties['Link'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Chapter11_5_0() {
+            return {
+                pane: 'pane_Chapter11_5',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(255,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(203,85,134,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Chapter11_5');
+        map.getPane('pane_Chapter11_5').style.zIndex = 405;
+        map.getPane('pane_Chapter11_5').style['mix-blend-mode'] = 'normal';
+        var layer_Chapter11_5 = new L.geoJson(json_Chapter11_5, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Chapter11_5',
+            layerName: 'layer_Chapter11_5',
+            pane: 'pane_Chapter11_5',
+            onEachFeature: pop_Chapter11_5,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Chapter11_5_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Chapter11_5);
+        function pop_Chapter10_6(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['URL'] !== null ? autolinker.link(feature.properties['URL'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Street View</th>\
+                        <td>' + (feature.properties['street vie'] !== null ? autolinker.link(feature.properties['street vie'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Designed by</th>\
+                        <td>' + (feature.properties['Architect'] !== null ? autolinker.link(feature.properties['Architect'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Year built</th>\
+                        <td>' + (feature.properties['Year built'] !== null ? autolinker.link(feature.properties['Year built'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Notes</th>\
+                        <td>' + (feature.properties['Notes'] !== null ? autolinker.link(feature.properties['Notes'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">More info</th>\
+                        <td>' + (feature.properties['Link'] !== null ? autolinker.link(feature.properties['Link'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Chapter10_6_0() {
+            return {
+                pane: 'pane_Chapter10_6',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(255,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(190,136,78,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Chapter10_6');
+        map.getPane('pane_Chapter10_6').style.zIndex = 406;
+        map.getPane('pane_Chapter10_6').style['mix-blend-mode'] = 'normal';
+        var layer_Chapter10_6 = new L.geoJson(json_Chapter10_6, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Chapter10_6',
+            layerName: 'layer_Chapter10_6',
+            pane: 'pane_Chapter10_6',
+            onEachFeature: pop_Chapter10_6,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Chapter10_6_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Chapter10_6);
+        function pop_Chapter9_7(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['URL'] !== null ? autolinker.link(feature.properties['URL'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Street View</th>\
+                        <td>' + (feature.properties['street vie'] !== null ? autolinker.link(feature.properties['street vie'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Designed by</th>\
+                        <td>' + (feature.properties['Architect'] !== null ? autolinker.link(feature.properties['Architect'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Year built</th>\
+                        <td>' + (feature.properties['Year built'] !== null ? autolinker.link(feature.properties['Year built'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Notes</th>\
+                        <td>' + (feature.properties['Notes'] !== null ? autolinker.link(feature.properties['Notes'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">More info</th>\
+                        <td>' + (feature.properties['Link'] !== null ? autolinker.link(feature.properties['Link'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Chapter9_7_0() {
+            return {
+                pane: 'pane_Chapter9_7',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(255,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(82,97,66,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Chapter9_7');
+        map.getPane('pane_Chapter9_7').style.zIndex = 407;
+        map.getPane('pane_Chapter9_7').style['mix-blend-mode'] = 'normal';
+        var layer_Chapter9_7 = new L.geoJson(json_Chapter9_7, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Chapter9_7',
+            layerName: 'layer_Chapter9_7',
+            pane: 'pane_Chapter9_7',
+            onEachFeature: pop_Chapter9_7,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Chapter9_7_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Chapter9_7);
+        function pop_Chapter8_8(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['URL'] !== null ? autolinker.link(feature.properties['URL'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Street View</th>\
+                        <td>' + (feature.properties['street vie'] !== null ? autolinker.link(feature.properties['street vie'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Designed by</th>\
+                        <td>' + (feature.properties['Architect'] !== null ? autolinker.link(feature.properties['Architect'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Year built</th>\
+                        <td>' + (feature.properties['Year built'] !== null ? autolinker.link(feature.properties['Year built'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Notes</th>\
+                        <td>' + (feature.properties['Notes'] !== null ? autolinker.link(feature.properties['Notes'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">More info</th>\
+                        <td>' + (feature.properties['Link'] !== null ? autolinker.link(feature.properties['Link'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Chapter8_8_0() {
+            return {
+                pane: 'pane_Chapter8_8',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(255,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(58,93,208,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Chapter8_8');
+        map.getPane('pane_Chapter8_8').style.zIndex = 408;
+        map.getPane('pane_Chapter8_8').style['mix-blend-mode'] = 'normal';
+        var layer_Chapter8_8 = new L.geoJson(json_Chapter8_8, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Chapter8_8',
+            layerName: 'layer_Chapter8_8',
+            pane: 'pane_Chapter8_8',
+            onEachFeature: pop_Chapter8_8,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Chapter8_8_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Chapter8_8);
+        function pop_Chapter7_9(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['URL'] !== null ? autolinker.link(feature.properties['URL'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Street View</th>\
+                        <td>' + (feature.properties['street vie'] !== null ? autolinker.link(feature.properties['street vie'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Designed by</th>\
+                        <td>' + (feature.properties['Architect'] !== null ? autolinker.link(feature.properties['Architect'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Year built</th>\
+                        <td>' + (feature.properties['Year built'] !== null ? autolinker.link(feature.properties['Year built'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Notes</th>\
+                        <td>' + (feature.properties['Notes'] !== null ? autolinker.link(feature.properties['Notes'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">More info</th>\
+                        <td>' + (feature.properties['Link'] !== null ? autolinker.link(feature.properties['Link'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Chapter7_9_0() {
+            return {
+                pane: 'pane_Chapter7_9',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(255,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(168,215,148,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Chapter7_9');
+        map.getPane('pane_Chapter7_9').style.zIndex = 409;
+        map.getPane('pane_Chapter7_9').style['mix-blend-mode'] = 'normal';
+        var layer_Chapter7_9 = new L.geoJson(json_Chapter7_9, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Chapter7_9',
+            layerName: 'layer_Chapter7_9',
+            pane: 'pane_Chapter7_9',
+            onEachFeature: pop_Chapter7_9,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Chapter7_9_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Chapter7_9);
+        function pop_Chapter6_10(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['URL'] !== null ? autolinker.link(feature.properties['URL'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Street View</th>\
+                        <td>' + (feature.properties['street vie'] !== null ? autolinker.link(feature.properties['street vie'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Designed by</th>\
+                        <td>' + (feature.properties['Architect'] !== null ? autolinker.link(feature.properties['Architect'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Year built</th>\
+                        <td>' + (feature.properties['Year built'] !== null ? autolinker.link(feature.properties['Year built'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Notes</th>\
+                        <td>' + (feature.properties['Notes'] !== null ? autolinker.link(feature.properties['Notes'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">More info</th>\
+                        <td>' + (feature.properties['Link'] !== null ? autolinker.link(feature.properties['Link'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Chapter6_10_0() {
+            return {
+                pane: 'pane_Chapter6_10',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(255,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(191,73,108,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Chapter6_10');
+        map.getPane('pane_Chapter6_10').style.zIndex = 410;
+        map.getPane('pane_Chapter6_10').style['mix-blend-mode'] = 'normal';
+        var layer_Chapter6_10 = new L.geoJson(json_Chapter6_10, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Chapter6_10',
+            layerName: 'layer_Chapter6_10',
+            pane: 'pane_Chapter6_10',
+            onEachFeature: pop_Chapter6_10,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Chapter6_10_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Chapter6_10);
+        function pop_Chapter5_11(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['URL'] !== null ? autolinker.link(feature.properties['URL'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Street View</th>\
+                        <td>' + (feature.properties['street vie'] !== null ? autolinker.link(feature.properties['street vie'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Designed by</th>\
+                        <td>' + (feature.properties['Architect'] !== null ? autolinker.link(feature.properties['Architect'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Year built</th>\
+                        <td>' + (feature.properties['Year built'] !== null ? autolinker.link(feature.properties['Year built'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Notes</th>\
+                        <td>' + (feature.properties['Notes'] !== null ? autolinker.link(feature.properties['Notes'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">More info</th>\
+                        <td>' + (feature.properties['Link'] !== null ? autolinker.link(feature.properties['Link'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Chapter5_11_0() {
+            return {
+                pane: 'pane_Chapter5_11',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(255,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(139,89,201,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Chapter5_11');
+        map.getPane('pane_Chapter5_11').style.zIndex = 411;
+        map.getPane('pane_Chapter5_11').style['mix-blend-mode'] = 'normal';
+        var layer_Chapter5_11 = new L.geoJson(json_Chapter5_11, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Chapter5_11',
+            layerName: 'layer_Chapter5_11',
+            pane: 'pane_Chapter5_11',
+            onEachFeature: pop_Chapter5_11,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Chapter5_11_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Chapter5_11);
+        function pop_Chapter4_12(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['URL'] !== null ? autolinker.link(feature.properties['URL'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Street View</th>\
+                        <td>' + (feature.properties['street vie'] !== null ? autolinker.link(feature.properties['street vie'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Designed by</th>\
+                        <td>' + (feature.properties['Architect'] !== null ? autolinker.link(feature.properties['Architect'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Year built</th>\
+                        <td>' + (feature.properties['Year built'] !== null ? autolinker.link(feature.properties['Year built'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Notes</th>\
+                        <td>' + (feature.properties['Notes'] !== null ? autolinker.link(feature.properties['Notes'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">More info</th>\
+                        <td>' + (feature.properties['Link'] !== null ? autolinker.link(feature.properties['Link'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Chapter4_12_0() {
+            return {
+                pane: 'pane_Chapter4_12',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(255,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(86,167,111,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Chapter4_12');
+        map.getPane('pane_Chapter4_12').style.zIndex = 412;
+        map.getPane('pane_Chapter4_12').style['mix-blend-mode'] = 'normal';
+        var layer_Chapter4_12 = new L.geoJson(json_Chapter4_12, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Chapter4_12',
+            layerName: 'layer_Chapter4_12',
+            pane: 'pane_Chapter4_12',
+            onEachFeature: pop_Chapter4_12,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Chapter4_12_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Chapter4_12);
+        function pop_Chapter3_13(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['URL'] !== null ? autolinker.link(feature.properties['URL'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Street View</th>\
+                        <td>' + (feature.properties['street vie'] !== null ? autolinker.link(feature.properties['street vie'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Designed by</th>\
+                        <td>' + (feature.properties['Architect'] !== null ? autolinker.link(feature.properties['Architect'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Year built</th>\
+                        <td>' + (feature.properties['Year built'] !== null ? autolinker.link(feature.properties['Year built'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Notes</th>\
+                        <td>' + (feature.properties['Notes'] !== null ? autolinker.link(feature.properties['Notes'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">More info</th>\
+                        <td>' + (feature.properties['Link'] !== null ? autolinker.link(feature.properties['Link'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Chapter3_13_0() {
+            return {
+                pane: 'pane_Chapter3_13',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(255,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(51,145,208,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Chapter3_13');
+        map.getPane('pane_Chapter3_13').style.zIndex = 413;
+        map.getPane('pane_Chapter3_13').style['mix-blend-mode'] = 'normal';
+        var layer_Chapter3_13 = new L.geoJson(json_Chapter3_13, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Chapter3_13',
+            layerName: 'layer_Chapter3_13',
+            pane: 'pane_Chapter3_13',
+            onEachFeature: pop_Chapter3_13,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Chapter3_13_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Chapter3_13);
+        function pop_Chapter2_14(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['URL'] !== null ? autolinker.link(feature.properties['URL'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Street View</th>\
+                        <td>' + (feature.properties['street vie'] !== null ? autolinker.link(feature.properties['street vie'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Designed by</th>\
+                        <td>' + (feature.properties['Architect'] !== null ? autolinker.link(feature.properties['Architect'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Year built</th>\
+                        <td>' + (feature.properties['Year built'] !== null ? autolinker.link(feature.properties['Year built'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Notes</th>\
+                        <td>' + (feature.properties['Notes'] !== null ? autolinker.link(feature.properties['Notes'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">More info</th>\
+                        <td>' + (feature.properties['Link'] !== null ? autolinker.link(feature.properties['Link'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Chapter2_14_0() {
+            return {
+                pane: 'pane_Chapter2_14',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(255,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(198,181,111,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Chapter2_14');
+        map.getPane('pane_Chapter2_14').style.zIndex = 414;
+        map.getPane('pane_Chapter2_14').style['mix-blend-mode'] = 'normal';
+        var layer_Chapter2_14 = new L.geoJson(json_Chapter2_14, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Chapter2_14',
+            layerName: 'layer_Chapter2_14',
+            pane: 'pane_Chapter2_14',
+            onEachFeature: pop_Chapter2_14,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Chapter2_14_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Chapter2_14);
+        function pop_Chapter1_15(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['URL'] !== null ? autolinker.link(feature.properties['URL'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Street View</th>\
+                        <td>' + (feature.properties['street vie'] !== null ? autolinker.link(feature.properties['street vie'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Designed by</th>\
+                        <td>' + (feature.properties['Architect'] !== null ? autolinker.link(feature.properties['Architect'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Year built</th>\
+                        <td>' + (feature.properties['Year built'] !== null ? autolinker.link(feature.properties['Year built'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Notes</th>\
+                        <td>' + (feature.properties['Notes'] !== null ? autolinker.link(feature.properties['Notes'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">More info</th>\
+                        <td>' + (feature.properties['Link'] !== null ? autolinker.link(feature.properties['Link'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Chapter1_15_0() {
+            return {
+                pane: 'pane_Chapter1_15',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(255,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(224,74,29,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Chapter1_15');
+        map.getPane('pane_Chapter1_15').style.zIndex = 415;
+        map.getPane('pane_Chapter1_15').style['mix-blend-mode'] = 'normal';
+        var layer_Chapter1_15 = new L.geoJson(json_Chapter1_15, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Chapter1_15',
+            layerName: 'layer_Chapter1_15',
+            pane: 'pane_Chapter1_15',
+            onEachFeature: pop_Chapter1_15,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Chapter1_15_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Chapter1_15);
+        function pop_Allbuildings_16(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['URL'] !== null ? autolinker.link(feature.properties['URL'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Street View</th>\
+                        <td>' + (feature.properties['street vie'] !== null ? autolinker.link(feature.properties['street vie'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Designed by</th>\
+                        <td>' + (feature.properties['Architect'] !== null ? autolinker.link(feature.properties['Architect'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Year built</th>\
+                        <td>' + (feature.properties['Year built'] !== null ? autolinker.link(feature.properties['Year built'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Notes</th>\
+                        <td>' + (feature.properties['Notes'] !== null ? autolinker.link(feature.properties['Notes'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">More info</th>\
+                        <td>' + (feature.properties['Link'] !== null ? autolinker.link(feature.properties['Link'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Allbuildings_16_0() {
+            return {
+                pane: 'pane_Allbuildings_16',
+                radius: 7.2,
+                opacity: 1,
+                color: 'rgba(255,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,0,0,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Allbuildings_16');
+        map.getPane('pane_Allbuildings_16').style.zIndex = 416;
+        map.getPane('pane_Allbuildings_16').style['mix-blend-mode'] = 'normal';
+        var layer_Allbuildings_16 = new L.geoJson(json_Allbuildings_16, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Allbuildings_16',
+            layerName: 'layer_Allbuildings_16',
+            pane: 'pane_Allbuildings_16',
+            onEachFeature: pop_Allbuildings_16,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Allbuildings_16_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Allbuildings_16);
+        map.addLayer(layer_Allbuildings_16);
+            var title = new L.Control();
+            title.onAdd = function (map) {
+                this._div = L.DomUtil.create('div', 'info');
+                this.update();
+                return this._div;
+            };
+            title.update = function () {
+                this._div.innerHTML = '<h2>Destruction of Dublin - map by Conor O\'Neill (@conoron)</h2>';
+            };
+            title.addTo(map);
+            var abstract = new L.Control({'position':'bottomright'});
+            abstract.onAdd = function (map) {
+                this._div = L.DomUtil.create('div',
+                'leaflet-control abstract');
+                this._div.id = 'abstract'
+                    this._div.setAttribute("onmouseenter", "abstract.show()");
+                    this._div.setAttribute("onmouseleave", "abstract.hide()");
+                    this.hide();
+                    return this._div;
+                };
+                abstract.hide = function () {
+                    this._div.classList.remove("abstractUncollapsed");
+                    this._div.classList.add("abstract");
+                    this._div.innerHTML = 'i'
+                }
+                abstract.show = function () {
+                    this._div.classList.remove("abstract");
+                    this._div.classList.add("abstractUncollapsed");
+                    this._div.innerHTML = 'An interactive map and unofficial reading companion to Frank McDonald\'s book "The Destruction of Dublin".<br /><br />This map shows the buildings discussed in the book, chapter by chapter. Each point includes a photo of the building, its name, the architect, year built, and a direct link to the building on Google Street View. Where the building has been altered or demolished, a historic Street View image is used, when available.<br /><br />Check out @conoron on Twitter for more maps.';
+            };
+            abstract.addTo(map);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'<img src="legend/Allbuildings_16.png" /> All buildings': layer_Allbuildings_16,'<img src="legend/Chapter1_15.png" /> Chapter 1': layer_Chapter1_15,'<img src="legend/Chapter2_14.png" /> Chapter 2': layer_Chapter2_14,'<img src="legend/Chapter3_13.png" /> Chapter 3': layer_Chapter3_13,'<img src="legend/Chapter4_12.png" /> Chapter 4': layer_Chapter4_12,'<img src="legend/Chapter5_11.png" /> Chapter 5': layer_Chapter5_11,'<img src="legend/Chapter6_10.png" /> Chapter 6': layer_Chapter6_10,'<img src="legend/Chapter7_9.png" /> Chapter 7': layer_Chapter7_9,'<img src="legend/Chapter8_8.png" /> Chapter 8': layer_Chapter8_8,'<img src="legend/Chapter9_7.png" /> Chapter 9': layer_Chapter9_7,'<img src="legend/Chapter10_6.png" /> Chapter 10': layer_Chapter10_6,'<img src="legend/Chapter11_5.png" /> Chapter 11': layer_Chapter11_5,'<img src="legend/Chapter12_4.png" /> Chapter 12': layer_Chapter12_4,'<img src="legend/Chapter13_3.png" /> Chapter 13': layer_Chapter13_3,'<img src="legend/Chapter14_2.png" /> Chapter 14': layer_Chapter14_2,'<img src="legend/Chapter15_1.png" /> Chapter 15': layer_Chapter15_1,"OSM Standard": layer_OSMStandard_0,}).addTo(map);
+        setBounds();
+        </script>
+    </body>
+</html>
